@@ -25,6 +25,8 @@ import {toggleTask,deleteTask} from '../actions/action'
 
     render(){
 
+
+console.log(this.props.tasks);
 /* return (
                             
                 

@@ -34,4 +34,13 @@ export function toggleTask(id){
     }
 }
 
+    export function filterTask(data){
+
+        return{
+
+            type: types.FILTER_TASK,
+            data:data
+        }
+    }
+
 

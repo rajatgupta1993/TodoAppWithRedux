@@ -9,6 +9,7 @@ import ReactDOM from "react-dom"
 import {connect} from 'react-redux';
 import AddTextBoxContainer from './containers/AddTextBoxContainer'
 import TaskList from './components/TaskList'
+import FilterContainer from './containers/FilterContainer'
 
 
 
@@ -22,10 +23,34 @@ import TaskList from './components/TaskList'
                 <p style={{fontSize:'30px', textAlign:'center'}}> TO DO APP </p>
                 <AddTextBoxContainer/>
                 <TaskList/>
+
+               { (this.props.tasks.length>0)?
+                               <FilterContainer/> : null}
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps= (store)=>{
+
+    var taskList={
+
+        tasks: store.state
+    }
+
+    return taskList;
+}
+
+const mapDispatchToProps=(dispatch) =>{
+
+    return{
+
+     
+
+    } 
+}
+
+export default connect (mapStateToProps,mapDispatchToProps)(App);
+
+
 
