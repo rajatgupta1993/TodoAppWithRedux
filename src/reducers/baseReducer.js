@@ -4,37 +4,43 @@
 import * as action from '../actions/action'
 
 import * as actionTypes from '../constants/actionType'
-const initialState={
-
-  task:[1,2,3,4]
-
-}
+const initialState=[]
 
 
-export default function baseReducer(state = initialState , action){
+export default function baseReducer(state = [] , action){
 
     switch (action.type){
 
         case actionTypes.ADD_TASK:
 
-            console.log( `PREVIOUS STATE  IN INCREMENT IS `);
-            console.log(state);
-            return{
-                ...state,
-                task:state.task.concat(action.data)
+        
+           console.log(state);
 
+            return [  ...state,
+                {
+                  task:action.data.task,
+                  id: action.data.id,
+                  completed:false
+                }
+            ];
                 //task:state.task.push(action.data)
           //  task:[...state.task,action.data]
-            };
+        
+        case actionTypes.TOGGLE_TASK: 
+
+        return state.map( (item) => ( (item.id == action.data ) ? {   task:item.task,
+                                                                       id:item.id,
+                                                                       completed: !item.completed
+                                                                    } : item )
+        );
+                                   /* if(item.id===action){
+                                        {...item, completed:!item.completed}
+                                    }*/ 
 
         case actionTypes.DELETE_TASK:
             console.log(state);
 
-            //throw("exception");
-            return {
-                ...state,
-                counter:--state.counter
-            };
+           return state.filter( (item) => !(item.id == action.data ));
 
         default:
             console.log(state);

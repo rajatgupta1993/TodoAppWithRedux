@@ -10,7 +10,8 @@ class AddTextBoxContainer extends React.Component{
         super(props)
 
         this.state={
-            text:''
+            text:'',
+            id:0
         };
         this.handleNewTodoKeyDown=this.handleNewTodoKeyDown.bind(this);
         this.handleChange=this.handleChange.bind(this);
@@ -30,7 +31,12 @@ class AddTextBoxContainer extends React.Component{
 
         if (val) {
            console.log(this.state.text);
-           this.props.addTask(this.state.text);
+           this.props.addTask({
+                     task:this.state.text,
+                     id: this.state.id,
+                              });
+
+           this.setState({id: ++this.state.id});
            this.setState({text:''});
         }
     }
@@ -46,7 +52,7 @@ class AddTextBoxContainer extends React.Component{
 
 
         return(
-            <AddTextBox  handleNewTodoKeyDown={this.handleNewTodoKeyDown}  handleChange={this.handleChange}
+            <AddTextBox  handleNewTodoKeyDown={this.handleNewTodoKeyDown}  handleChange={this.handleChange} 
                             value={this.state.text}/>
 
         )

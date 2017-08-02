@@ -18,7 +18,7 @@ import TaskList from './components/TaskList'
 
         return (
 
-            <div style={{width:'100%' , height:'100%', background:'cyan',}}>
+            <div style={{width:'100%' , height:'100%'}}>
                 <p style={{fontSize:'30px', textAlign:'center'}}> TO DO APP </p>
                 <AddTextBoxContainer/>
                 <TaskList/>

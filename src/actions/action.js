@@ -14,21 +14,24 @@ export function addTask(data){
     }
 }
 
-export function deleteTask(){
+export function deleteTask(data){
 
     return {
 
         type: types.DELETE_TASK,
+        data : data
 
     }
 }
 
-
-export function resetFunction(){
+export function toggleTask(id){
 
     return {
 
-        type: types.RESET_COUNTER,
-        data: 'Reset to default value'
+        type: types.TOGGLE_TASK,
+        data: id
+
     }
 }
+
+
