@@ -2,6 +2,7 @@ import React from 'react'
 import FilterComponent from '../components/FilterComponent'
 import {connect} from 'react-redux';
 import {filterTask} from '../actions/action'
+import PropTypes from 'prop-types';
 
 class FilterContainer extends React.Component{
 
@@ -29,7 +30,7 @@ onAllPressed (){
         IncompleteFilter:0
     })
 
-    if(this.state.AllFilter==1 || (this.state.CompletedFilter==0 && this.state.IncompleteFilter==0)){
+    if(this.state.AllFilter === 1 || (this.state.CompletedFilter === 0 && this.state.IncompleteFilter === 0)){
 
             this.props.filterTask('All');
 
@@ -45,7 +46,11 @@ onCompletedPressed(){
         AllFilter:0
     });
 
-      this.props.filterTask('Completed');
+    if(this.state.CompletedFilter % 2 !== 0 )
+        this.props.filterTask('Completed');
+
+    else  
+        this.props.filterTask('All');
 }
 
 onIncompletePressed(){
@@ -55,7 +60,13 @@ onIncompletePressed(){
         AllFilter:0,
         CompletedFilter:0,
     });
-      this.props.filterTask('Incompleted');
+
+     if(this.state.IncompleteFilter % 2 !== 0 )
+          this.props.filterTask('Incompleted');
+
+    else  
+        this.props.filterTask('All');
+    
 }
 
 
@@ -69,6 +80,11 @@ onIncompletePressed(){
 
         )
     }
+}
+
+FilterContainer.propTypes={
+
+    filterTask:PropTypes.func
 }
 
 const mapStateToProps=(state)=> {

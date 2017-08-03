@@ -1,5 +1,5 @@
 import React from "react"
-import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 export default class FilterComponent extends React.Component{
@@ -10,15 +10,23 @@ export default class FilterComponent extends React.Component{
 		return (
 				<div style={{textAlign:'center',marginTop:'-10px',width:'30%'}}>
 
-					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.AllFilter % 2 !=0)? 'green':null}}
+					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.AllFilter % 2 !== 0)? 'green':null}}
 						onClick={this.props.onAllPressed}> All </div>
 
-					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.CompletedFilter % 2 !=0)? 'green':null}}
+					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.CompletedFilter % 2 !== 0)? 'green':null}}
 						onClick={this.props.onCompletedPressed}> Completed </div> 
 
-					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.IncompleteFilter % 2 !=0)? 'green':null}}
+					<div style={{display:'inline-block',border:'1px solid', width:'25%',padding:'5px', background:(this.props.IncompleteFilter % 2 !== 0)? 'green':null}}
 						onClick={this.props.onIncompletePressed}> Incomplete </div>
 				</div>
 			);
 	}
 } 
+
+FilterComponent.propTypes={
+
+	onAllPressed : PropTypes.func,
+	onCompletedPressed : PropTypes.func,
+	onIncompletePressed : PropTypes.func,
+
+}

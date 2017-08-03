@@ -1,6 +1,7 @@
 import React from "react"
 import {connect} from 'react-redux';
 import {toggleTask,deleteTask} from '../actions/action'
+import PropTypes from 'prop-types';
 
  class TaskList extends React.Component{
 
@@ -13,13 +14,13 @@ import {toggleTask,deleteTask} from '../actions/action'
 
       handleClick(e){
 
-         this.props.toggleTask(e.target.getAttribute('data-key'));
+         this.props.toggleTask(parseInt (e.target.getAttribute('data-key')));
        
      }
 
      onDeletePressed(e){
 
-        this.props.deleteTask(e.target.parentNode.getAttribute('data-key'));
+        this.props.deleteTask(parseInt (e.target.parentNode.getAttribute('data-key')));
      }
 
 
@@ -70,6 +71,11 @@ console.log(this.props.tasks);
 
               }
         
+}
+
+TaskList.propTypes={
+
+    tasks : PropTypes.array,
 }
 
 const mapStateToProps= (store)=>{

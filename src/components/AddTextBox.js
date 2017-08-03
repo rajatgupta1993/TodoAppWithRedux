@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
-export default class AddTextBox extends React.Component{
+ class AddTextBox extends React.Component{
 
     constructor(props){
         super(props)
@@ -27,3 +28,12 @@ export default class AddTextBox extends React.Component{
         );
     }
 }
+
+AddTextBox.propTypes={
+  handleNewTodoKeyDown : PropTypes.func,
+  handleChange : PropTypes.func,
+  value : PropTypes.string 
+
+}
+
+export default AddTextBox;

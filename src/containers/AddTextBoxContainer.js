@@ -1,7 +1,8 @@
 import React from 'react'
 import AddTextBox from '../components/AddTextBox'
 import {connect} from 'react-redux';
-import {addTask,deleteTask} from '../actions/action'
+import {addTask} from '../actions/action'
+import PropTypes from 'prop-types';
 
 class AddTextBoxContainer extends React.Component{
 
@@ -59,22 +60,23 @@ class AddTextBoxContainer extends React.Component{
     }
 }
 
+AddTextBoxContainer.propTypes={
+
+    addTask: PropTypes.func
+}
+
 const mapStateToProps=(state)=> {
 
-    var data={
-
-        state:state
-    }
-
-    return data;
+    return{
+            state:state
+         }
 }
 
 const mapDispatchToProps= (dispatch)=>{
 
     return{
-
-        addTask: (task)=> dispatch(addTask(task))
-    }
+             addTask: (task)=> dispatch(addTask(task))
+          }
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(AddTextBoxContainer);
