@@ -76,7 +76,7 @@ const mapStateToProps= (store)=>{
 
     var taskList={
 
-        tasks: store.state
+        tasks: store.state.filteredTasks
     }
 
     return taskList;

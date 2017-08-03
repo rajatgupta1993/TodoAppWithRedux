@@ -24,8 +24,7 @@ import FilterContainer from './containers/FilterContainer'
                 <AddTextBoxContainer/>
                 <TaskList/>
 
-               { (this.props.tasks.length>0)?
-                               <FilterContainer/> : null}
+               { (this.props.tasks.length>0) && <FilterContainer/>}
             </div>
         );
     }
@@ -35,22 +34,15 @@ const mapStateToProps= (store)=>{
 
     var taskList={
 
-        tasks: store.state
+        tasks: store.state.filteredTasks
     }
 
     return taskList;
 }
 
-const mapDispatchToProps=(dispatch) =>{
 
-    return{
 
-     
-
-    } 
-}
-
-export default connect (mapStateToProps,mapDispatchToProps)(App);
+export default connect (mapStateToProps)(App);
 
 
 

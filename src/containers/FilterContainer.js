@@ -52,8 +52,8 @@ onIncompletePressed(){
 
     this.setState({
         IncompleteFilter: ++this.state.IncompleteFilter,
-          AllFilter:0,
-            CompletedFilter:0,
+        AllFilter:0,
+        CompletedFilter:0,
     });
       this.props.filterTask('Incompleted');
 }
