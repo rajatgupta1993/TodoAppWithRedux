@@ -8,7 +8,7 @@ import React from "react"
 //import ReactDOM from "react-dom"
 import {connect} from 'react-redux';
 import AddTextBoxContainer from './containers/AddTextBoxContainer'
-import TaskList from './components/TaskList'
+import TaskListContainer from './containers/TaskListContainer'
 import FilterContainer from './containers/FilterContainer'
 
 
@@ -22,7 +22,7 @@ import FilterContainer from './containers/FilterContainer'
             <div style={{width:'100%' , height:'100%'}}>
                 <p style={{fontSize:'30px', textAlign:'center'}}> TO DO APP </p>
                 <AddTextBoxContainer/>
-                <TaskList/>
+                <TaskListContainer/>
 
                { (this.props.tasks.length>0) && <FilterContainer/>}
             </div>

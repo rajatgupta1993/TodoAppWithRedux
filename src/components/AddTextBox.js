@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types';
+import '../styles.css';
 
  class AddTextBox extends React.Component{
 
@@ -13,10 +14,9 @@ import PropTypes from 'prop-types';
     render(){
 
         return (
-        <div style={{textAlign:'center'}}>
+        <div className='TextCenter'>
 
-            <input type="text"
-                   style={{border:'2px solid' ,  borderColor:'#AEAEAE' , width: '400px' ,height:'40px' ,padding:'5px' , paddingLeft:'20px' }}
+            <input className="AddTaskTetView" type="text"
                    placeholder="What needs to be done?"
                    autoFocus={true}
                    onKeyDown={this.props.handleNewTodoKeyDown}

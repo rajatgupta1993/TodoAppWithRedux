@@ -89,20 +89,19 @@ FilterContainer.propTypes={
 
 const mapStateToProps=(state)=> {
 
-    var data={
+  return {
+            state:state
+         }
 
-        state:state
-    }
-
-    return data;
+   
 }   
 
 const mapDispatchToProps= (dispatch)=>{
 
-    return{
+    return  {
 
-        filterTask: (data)=> dispatch(filterTask(data))
-    }
+                filterTask: (data)=> dispatch(filterTask(data))
+            }
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(FilterContainer);
